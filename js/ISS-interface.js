@@ -8,10 +8,23 @@ $(document).ready(function() {
       });
   });
 
-  $.getJSON('http://api.open-notify.org/iss-pass.json?lat=-12.0&lon=-77.0&alt=20&n=10&callback=?', function(data) {
-    data['response'].forEach(function (data) {
-        var date = new Date(data['risetime']*1000);
-         $('#isspass').append('<li>' + date.toString() + '</li>');
+
+
+  $('#location').submit(function(event) {
+    event.preventDefault();
+
+    var lat = $('.latitude').val();
+    var lon = $('.longitude').val();
+    var amount = $('.amount').val();
+
+    $.getJSON('http://api.open-notify.org/iss-pass.json?lat=' + lat + '&lon=' + lon + '&alt=10&n=' + amount + '&callback=?',
+    function(data) {
+      data['response'].forEach(function (data) {
+          var date = new Date(data.risetime * 1000);
+           $('#isspass').append('<li>' + date.toString() + '</li>');
+      });
     });
   });
+
+
 });

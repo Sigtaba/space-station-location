@@ -14,7 +14,24 @@
           <p>There are <span id="spacepeeps"></span> in space.</p>
           <ul id="astronames">
 
-        </ul></div>
+          </ul>
+        </div>
+        <h3>What times will the ISS pass your location?</h3>
+        <form id="location">
+          <div class="form-group">
+            <label for="latitude">Enter Latitude</label>
+            <input type="number" name="latitude" class="form-control latitude">
+          </div>
+          <div class="form-group">
+            <label for="longitude">Enter Longitude</label>
+            <input type="number" name="longitude" class="form-control longitude">
+          </div>
+          <div class="form-group">
+            <label for="amount">Enter how many passes you'd like to see</label>
+            <input type="number" name="amount" class="form-control amount">
+          </div>
+          <button type="submit">Submit</button>
+        </form>
         <div id="isspass">
 
         </div>
