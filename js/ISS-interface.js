@@ -8,7 +8,7 @@ $(document).ready(function() {
       });
   });
 
-  $.getJSON('http://api.open-notify.org/iss-pass.json?lat=-12.0&lon=-77.0&alt=20&n=5&callback=?', function(data) {
+  $.getJSON('http://api.open-notify.org/iss-pass.json?lat=-12.0&lon=-77.0&alt=20&n=10&callback=?', function(data) {
     data['response'].forEach(function (data) {
         var date = new Date(data['risetime']*1000);
          $('#isspass').append('<li>' + date.toString() + '</li>');
