@@ -1,3 +1,7 @@
+var apikey = 'AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY';
+
+https://maps.googleapis.com/maps/api/geocode/json?address=Portland,+OR&key=AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY
+
 $(document).ready(function() {
   $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
       var number = data['number'];
@@ -12,6 +16,15 @@ $(document).ready(function() {
 
   $('#location').submit(function(event) {
     event.preventDefault();
+
+    var city = $('#city').val();
+    var state = $('#state').val();
+
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=Portland+OR&key=AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY',
+    function(object) {
+      console.log(object.results[0].geometry.location.lat);
+      console.log(object.results[0].geometry.location.lng);
+    });
 
     var lat = $('.latitude').val();
     var lon = $('.longitude').val();
