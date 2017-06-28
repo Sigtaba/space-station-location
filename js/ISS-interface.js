@@ -34,13 +34,5 @@ $(document).ready(function() {
         });
       });
     });
-
-
-    // var lat = $('.latitude').val();
-    // var lon = $('.longitude').val();
-
-
   });
-
-
 });

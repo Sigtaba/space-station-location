@@ -11,14 +11,13 @@
       <h1>Locate the International Space Station!</h1>
 
         <div id="ISS">
-          <p>There are <span id="spacepeeps"></span> in space.</p>
+          <p>There are <span id="spacepeeps"></span>humans in space.</p>
           <ul id="astronames">
 
           </ul>
         </div>
-        <form id="findlatlon">
-          <h3>Enter your location to get your latitude and longitude:</h3>
-
+        <form id="location">
+          <h3>Enter your location to see when the ISS will pass over you!</h3>
           <div class="city">
             <label for="city">City:</label>
             <input type="text" name="city" id="city">
@@ -27,18 +26,6 @@
             <label for="state">State:</label>
             <input type="text" name="state" id="state">
           </div>
-
-        </form>
-        <h3>What times will the ISS pass your location?</h3>
-        <form id="location">
-          <!-- <div class="form-group">
-            <label for="latitude">Enter Latitude</label>
-            <input type="number" step="any" name="latitude" class="form-control latitude">
-          </div>
-          <div class="form-group">
-            <label for="longitude">Enter Longitude</label>
-            <input type="number" step="any" name="longitude" class="form-control longitude">
-          </div> -->
           <div class="form-group">
             <label for="amount">Enter how many passes you'd like to see</label>
             <input type="number" name="amount" class="form-control amount">
@@ -46,7 +33,6 @@
           <button type="submit">Submit</button>
         </form>
         <div id="isspass">
-
         </div>
       </div>
     </div>
