@@ -1,14 +1,17 @@
-var ISS = require('./../js/ISS.js').spaceModule;
-
-var displayLatLon = function() {
-  $('.showISS').text("The location of the International Space Station is " + lat + " latitude " + lon + "longitude");
-}
-
 $(document).ready(function() {
-  var currentISS = new ISS();
-  $('.showISS').text(currentISS.getLatLon());
-  $('#weather-location').click(function() {
+  $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
+      var number = data['number'];
+      $('#spacepeeps').html(number);
 
+      data['people'].forEach(function (data) {
+           $('#astronames').append('<li>' + data['name'] + '</li>');
+      });
+  });
 
+  $.getJSON('http://api.open-notify.org/iss-pass.json?lat=-12.0&lon=-77.0&alt=20&n=5&callback=?', function(data) {
+    data['response'].forEach(function (data) {
+        var date = new Date(data['risetime']*1000);
+         $('#isspass').append('<li>' + date.toString() + '</li>');
+    });
   });
 });
