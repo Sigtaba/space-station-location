@@ -13,30 +13,33 @@ $(document).ready(function() {
   });
 
 
-
   $('#location').submit(function(event) {
     event.preventDefault();
 
     var city = $('#city').val();
     var state = $('#state').val();
 
-    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=Portland+OR&key=AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY',
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + state + '&key=' + apikey,
     function(object) {
       console.log(object.results[0].geometry.location.lat);
       console.log(object.results[0].geometry.location.lng);
-    });
-
-    var lat = $('.latitude').val();
-    var lon = $('.longitude').val();
-    var amount = $('.amount').val();
-
-    $.getJSON('http://api.open-notify.org/iss-pass.json?lat=' + lat + '&lon=' + lon + '&alt=10&n=' + amount + '&callback=?',
-    function(data) {
-      data['response'].forEach(function (data) {
+      var lat = object.results[0].geometry.location.lat;
+      var lon = object.results[0].geometry.location.lng;
+      var amount = $('.amount').val();
+      $.getJSON('http://api.open-notify.org/iss-pass.json?lat=' + lat + '&lon=' + lon + '&alt=10&n=' + amount + '&callback=?',
+      function(data) {
+        data['response'].forEach(function (data) {
           var date = new Date(data.risetime * 1000);
-           $('#isspass').append('<li>' + date.toString() + '</li>');
+          $('#isspass').append('<li>' + date.toString() + '</li>');
+        });
       });
     });
+
+
+    // var lat = $('.latitude').val();
+    // var lon = $('.longitude').val();
+
+
   });
 
 
