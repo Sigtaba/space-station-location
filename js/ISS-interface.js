@@ -1,7 +1,5 @@
 var apikey = 'AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY';
 
-https://maps.googleapis.com/maps/api/geocode/json?address=Portland,+OR&key=AIzaSyApIDDb9M0b3j4dH77mcqqXj-dZ-l3YkhY
-
 $(document).ready(function() {
   $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
       var number = data['number'];
@@ -21,8 +19,6 @@ $(document).ready(function() {
 
     $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + state + '&key=' + apikey,
     function(object) {
-      console.log(object.results[0].geometry.location.lat);
-      console.log(object.results[0].geometry.location.lng);
       var lat = object.results[0].geometry.location.lat;
       var lon = object.results[0].geometry.location.lng;
       var amount = $('.amount').val();
