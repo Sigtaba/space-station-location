@@ -17,7 +17,6 @@ Weather.prototype.getLocation = function(city, state, amount, apiKey) {
   $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + state + '&key=' + apiKey).then(function(object) {
     var lat = object.results[0].geometry.location.lat;
     var lon = object.results[0].geometry.location.lng;
-    console.log(lat, lon);
     console.log(city, state, amount);
     $('#isspass').empty();
     $.getJSON('http://api.open-notify.org/iss-pass.json?lat=' + lat + '&lon=' + lon + '&alt=10&n=' + amount + '&callback=?').then(function(data) {
