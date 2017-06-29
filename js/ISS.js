@@ -1,8 +1,8 @@
-function Weather() {
+function SpaceStation() {
 
 }
 
-Weather.prototype.getWeather = function() {
+SpaceStation.prototype.getAstronauts = function() {
   $.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
       var number = data['number'];
       $('#spacepeeps').html(number);
@@ -13,7 +13,7 @@ Weather.prototype.getWeather = function() {
   });
 };
 
-Weather.prototype.getLocation = function(city, state, amount, apiKey) {
+SpaceStation.prototype.getLocation = function(city, state, amount, apiKey) {
   $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + state + '&key=' + apiKey).then(function(object) {
     var lat = object.results[0].geometry.location.lat;
     var lon = object.results[0].geometry.location.lng;
@@ -29,4 +29,4 @@ Weather.prototype.getLocation = function(city, state, amount, apiKey) {
   }); //close get
 }
 
-exports.weatherModule = Weather;
+exports.weatherModule = SpaceStation;
